@@ -44,7 +44,7 @@ public class GetHttp implements Runnable{
                 String recurso = in.readLine().trim().split(" ")[1];
                 System.out.println("Llamo al recurso: "+recurso);
                 //byte[] outputLine = Files.readAllBytes(Paths.get(raiz+recurso));
-                byte[] outputLine = Files.readAllBytes(Paths.get("raiz/index.html"));
+                byte[] outputLine = Files.readAllBytes(Paths.get("index.html"));
                 clientSocket.getOutputStream().write(outputLine);
             }
             clientSocket.close();

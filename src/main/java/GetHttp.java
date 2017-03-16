@@ -40,10 +40,11 @@ public class GetHttp implements Runnable{
     public void run() {
         try {
             try (BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
-                String raiz = "/home/estudiante/Downloads/AREM/AREM/raiz";
+                String raiz = "/raiz";
                 String recurso = in.readLine().trim().split(" ")[1];
                 System.out.println("Llamo al recurso: "+recurso);
-                byte[] outputLine = Files.readAllBytes(Paths.get(raiz+recurso));
+                //byte[] outputLine = Files.readAllBytes(Paths.get(raiz+recurso));
+                byte[] outputLine = Files.readAllBytes(Paths.get("raiz/index.html"));
                 clientSocket.getOutputStream().write(outputLine);
             }
             clientSocket.close();
